@@ -10,7 +10,8 @@ test:
 test-w:
 	@NODE_ENV=test $(MOCHA) \
 										--require $(REQUIRE) \
-										--reporter $(REPORTER) \
+										--reporter min \
+										--bail \
 										--watch
 
 test-cov:
