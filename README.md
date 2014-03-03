@@ -40,6 +40,10 @@ Convert from each other.
 
 ![All color models with convertions to each other](https://raw.github.com/garex/nodejs-color-model/develop/docs/all-models.png)
 
+## Tests
+
+Run `make test`. Currently code coverage is 99%.
+
 ## Copyright
 
 (c) 2014 github.com/garex, a@ustimen.co
