@@ -1,3 +1,5 @@
+var Rgb = require('..').Rgb;
+
 describe('Rgb', function(){
 
   describe('Rgb', function(){
@@ -24,6 +26,14 @@ describe('Rgb', function(){
 
   describe('toLab', function(){
     it('should convert to correct color in Lab model')
+  })
+
+  describe('component aliases (red, green, blue)', function(){
+    it('should set component`s value where passed and return it if nothing passed', function() {
+      new Rgb(10, 20, 30).red(15).red().should.be.equal(15);
+      new Rgb(10, 20, 30).green('30').green().should.be.equal(30);
+      new Rgb(10, 20, 30).blue('44').blue().should.be.equal(44);
+    })
   })
 
 });

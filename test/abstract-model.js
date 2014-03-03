@@ -74,7 +74,7 @@ describe('AbstractModel', function(){
     })
 
     it('should return color model when name and value passed', function() {
-
+      new Xyz(10, 20, 30).component('x', '').should.be.instanceOf(Xyz);
     })
   })
 

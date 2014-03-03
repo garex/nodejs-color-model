@@ -28,4 +28,18 @@ describe('Xyz', function(){
     })
   })
 
+  describe('component aliases (x, y, z)', function(){
+    it('should return component`s value where nothing passed', function() {
+      new Xyz(10, 20, 30).x().should.be.equal(10);
+      new Xyz(10, 20, 30).y('').should.not.be.equal(0);
+      new Xyz(10, 20, 30).z(null).should.not.be.equal(30);
+      new Xyz(10, 20, 30).z(30).should.not.be.equal(30);
+    })
+
+    it('should set component`s value when value passed', function() {
+      new Xyz(10, 20, 30).x('').toString().should.be.equal(new Xyz(0,  20, 30).toString());
+      new Xyz(10, 20, 30).y(80).toString().should.be.equal(new Xyz(10, 80, 30).toString());
+    })
+  })
+
 });
