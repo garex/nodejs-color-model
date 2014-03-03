@@ -1,5 +1,6 @@
 var AbstractModel = require('..').AbstractModel;
 var Xyz           = require('..').Xyz;
+var Rgb           = require('..').Rgb;
 
 describe('AbstractModel', function(){
 
@@ -47,7 +48,7 @@ describe('AbstractModel', function(){
       }).should.not.throwError(/not implemented/i);
 
       new Xyz(1,2,3).should.have.property('toLab');
-      new Xyz(1,2,3).toLab().should.exists;
+      new Rgb(1,2,3).toLab().should.exists;
     })
   })
 
