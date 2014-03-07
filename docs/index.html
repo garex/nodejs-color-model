@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NJSDoc Documentation</title>
+</head>
+<style>
+body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 5px;
+    overflow:scroll;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, p {
+    margin-bottom: 16px;
+    padding: 0;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 28px;
+    margin: 20px 0 6px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 18px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+    margin-left: 44px;
+}
+p, ul, ol {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 540px;
+}
+code, tt {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+/* override default chrome & firefox settings */
+input:not([type="image"]), textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+  display: inline-block;
+  width: 210px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select, input[type=file] {
+  height: 27px;
+  line-height: 27px;
+}
+textarea {
+  height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #004b9a;
+  border-bottom-color: #003f81;
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+  color: #fff;
+  background-position: 0 -15px;
+  text-decoration: none;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* CSS stylesheet is based on Kevin Burke's Markdown.css project (http://kevinburke.bitbucket.org/markdowncss) */
+</style>
+<style id="customization">
+body {
+  margin-top:120px;
+}
+.is-hidden {
+  display:none;
+}
+.section {
+  margin: 40px 0;
+}
+h4 tt {
+	font-weight:bold;
+}
+.namespace {
+  padding:40px 0;
+  margin:40px 0;
+  width:540px;
+}
+.code-unit {
+  margin-bottom: 60px;
+}
+</style>
+<body>
+<h1>Global Namespace</h1>
+<div class='namespace'><div class='namespace-header'><h2>Namespace: module</h2>
+</div><div class='section'><h3>Variables</h3>
+<div class='variable code-unit'><h4><tt>module.exports</tt></h4>
+<p>Color model Component<p class='location'>Defined at: abstract-model.js:1, component.js:1, component.js:10, hex-rgb.js:1, hsl.js:1, index.js:1, lab.js:1, rgb.js:1, xyz.js:1</p>
+</div></div></div><h1> File: <tt>../lib/hex-rgb.js</tt></h1>
+<div class='section'><h2>Constructor HexRgb(hex)</h2>
+<p>Rgb color model, that created from HEX string and formatted as HEX<p><ul><li><b><tt>hex</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: hex-rgb.js:1, hex-rgb.js:6</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>HexRgb._parseIntFromHex(hex)</tt></h4>
+<p><ul><li><b><tt>hex</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: hex-rgb.js:29</p>
+</div><div class='method code-unit'><h4><tt>HexRgb.toString(hex)</tt></h4>
+<p><ul><li><b><tt>hex</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: hex-rgb.js:36</p>
+</div><div class='method code-unit'><h4><tt>HexRgb._formatIntAsHex(intValue)</tt></h4>
+<p><ul><li><b><tt>intValue</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: hex-rgb.js:40</p>
+</div></div></div><h1> File: <tt>../lib/xyz.js</tt></h1>
+<div class='section'><h2>Constructor Xyz(x, y, z)</h2>
+<p>XYZ color model - base color model for others
+
+CIE 1931 color space<p><ul><li><b><tt>x</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>y</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>z</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:1, xyz.js:14</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>{Xyz|float} Xyz.x(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Xyz|float</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:28</p>
+</div><div class='method code-unit'><h4><tt>{Xyz|float} Xyz.y(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i>Took: 127ms
+<tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Xyz|float</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:36</p>
+</div><div class='method code-unit'><h4><tt>{Xyz|float} Xyz.z(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Xyz|float</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:44</p>
+</div><div class='method code-unit'><h4><tt>{Xyz} Xyz.toXyz()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Xyz</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:51</p>
+</div><div class='method code-unit'><h4><tt>{Lab} Xyz.toLab()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Lab</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:58</p>
+</div><div class='method code-unit'><h4><tt>{Float} Xyz._preparePreLabValue(preLabValue)</tt></h4>
+<p><ul><li><b><tt>preLabValue</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Float</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:74</p>
+</div><div class='method code-unit'><h4><tt>{Float} Xyz._finalizeLabValue(preLabValue)</tt></h4>
+<p><ul><li><b><tt>preLabValue</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Float</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:85</p>
+</div><div class='method code-unit'><h4><tt>{Rgb} Xyz.toRgb()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Rgb</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:92</p>
+</div><div class='method code-unit'><h4><tt>{Float} Xyz._finalizeRgbValue(preRgbValue)</tt></h4>
+<p><ul><li><b><tt>preRgbValue</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Float</tt> </li>
+</ul>
+<p class='location'>Defined at: xyz.js:107</p>
+</div></div></div><h1> File: <tt>../lib/abstract-model.js</tt></h1>
+<div class='section'><h2>Constructor AbstractModel()</h2>
+<p>Abstract color model<p><ul></ul>
+<p><b>Other tags</b>: 
+<ul><li><b>memberof</b> AbstractModel</li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:1, abstract-model.js:9</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>{String} AbstractModel.toString()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>String</tt> </li>
+</ul>
+<p><b>Other tags</b>: 
+<ul><li><b>memberof</b> AbstractModel</li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:18</p>
+</div><div class='method code-unit'><h4><tt>{Boolean} AbstractModel.equals(that)</tt></h4>
+<p><ul><li><b><tt>that</tt></b>: <i><tt>AbstractModel</tt></i> </li>
+<li><b>Returns</b> <tt>Boolean</tt> </li>
+</ul>
+<p><b>Other tags</b>: 
+<ul><li><b>memberof</b> AbstractModel</li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:31</p>
+</div><div class='method code-unit'><h4><tt>{Xyz} AbstractModel.toXyz()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Xyz</tt> </li>
+</ul>
+<p><b>Other tags</b>: 
+<ul><li><b>memberof</b> AbstractModel</li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:48</p>
+</div><div class='method code-unit'><h4><tt>{Lab} AbstractModel.toLab()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Lab</tt> </li>
+</ul>
+<p><b>Other tags</b>: 
+<ul><li><b>memberof</b> AbstractModel</li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:56</p>
+</div><div class='method code-unit'><h4><tt>{AbstractModel|Float} AbstractModel.component(name, value)</tt></h4>
+<p>Getter/chainable setter in one place<p><ul><li><b><tt>name</tt></b>: <i><tt>String</tt></i> </li>
+<li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>AbstractModel|Float</tt> </li>
+</ul>
+<p><b>Other tags</b>: 
+<ul><li><b>memberof</b> AbstractModel</li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:68</p>
+</div><div class='method code-unit'><h4><tt>AbstractModel._component(name, args)</tt></h4>
+<p><ul><li><b><tt>name</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>args</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: abstract-model.js:82</p>
+</div></div></div><h1> File: <tt>../lib/hsl.js</tt></h1>
+<div class='section'><h2>Constructor Hsl(h, s, l)</h2>
+<p>Hue, saturation, lightness color space<p><ul><li><b><tt>h</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>s</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>l</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:1, hsl.js:9</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>{Hsl|float} Hsl.hue(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Hsl|float</tt> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:23</p>
+</div><div class='method code-unit'><h4><tt>{Hsl|float} Hsl.saturation(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Hsl|float</tt> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:31</p>
+</div><div class='method code-unit'><h4><tt>{Hsl|float} Hsl.lightness(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Hsl|float</tt> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:39</p>
+</div><div class='method code-unit'><h4><tt>{Xyz} Hsl.toXyz()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Xyz</tt> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:46</p>
+</div><div class='method code-unit'><h4><tt>{Rgb} Hsl.toRgb()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Rgb</tt> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:53</p>
+</div><div class='method code-unit'><h4><tt>{Float} Hsl._finalizeRgbValue(preXyzValue)</tt></h4>
+<p><ul><li><b><tt>preXyzValue</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Float</tt> </li>
+</ul>
+<p class='location'>Defined at: hsl.js:82</p>
+</div></div></div><h1> File: <tt>../lib/lab.js</tt></h1>
+<div class='section'><h2>Constructor Lab(l, a, b)</h2>
+<p>Lab color space
+
+CIE 1976 (L*, a*, b*) color space<p><ul><li><b><tt>l</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>a</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>b</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: lab.js:1, lab.js:10</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>{Lab|float} Lab.lightness(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Lab|float</tt> </li>
+</ul>
+<p class='location'>Defined at: lab.js:24</p>
+</div><div class='method code-unit'><h4><tt>{Lab|float} Lab.a(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Lab|float</tt> </li>
+</ul>
+<p class='location'>Defined at: lab.js:32</p>
+</div><div class='method code-unit'><h4><tt>{Lab|float} Lab.b(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Lab|float</tt> </li>
+</ul>
+<p class='location'>Defined at: lab.js:40</p>
+</div></div></div><h1> File: <tt>../lib/rgb.js</tt></h1>
+<div class='section'><h2>Constructor Rgb(r, g, b)</h2>
+<p>Rgb color model<p><ul><li><b><tt>r</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>g</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>b</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:1, rgb.js:10</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>{Rgb|float} Rgb.red(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Rgb|float</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:24</p>
+</div><div class='method code-unit'><h4><tt>{Rgb|float} Rgb.green(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Rgb|float</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:32</p>
+</div><div class='method code-unit'><h4><tt>{Rgb|float} Rgb.blue(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Rgb|float</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:40</p>
+</div><div class='method code-unit'><h4><tt>{HexRgb} Rgb.toHex()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>HexRgb</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:47</p>
+</div><div class='method code-unit'><h4><tt>{String} Rgb.toHexString()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>String</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:58</p>
+</div><div class='method code-unit'><h4><tt>{Float} Rgb._preparePreXyzValue(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Float</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:66</p>
+</div><div class='method code-unit'><h4><tt>{Xyz} Rgb.toXyz()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Xyz</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:80</p>
+</div><div class='method code-unit'><h4><tt>{Float} Rgb._finalizeXyzValue(preXyzValue)</tt></h4>
+<p><ul><li><b><tt>preXyzValue</tt></b>: <i><tt>Float</tt></i> </li>
+<li><b>Returns</b> <tt>Float</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:96</p>
+</div><div class='method code-unit'><h4><tt>{Hsl} Rgb.toHsl()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Hsl</tt> </li>
+</ul>
+<p class='location'>Defined at: rgb.js:103</p>
+</div></div></div><h1> File: <tt>../lib/component.js</tt></h1>
+<div class='section'><h2>Constructor Component(name, from, to)</h2>
+<p>Color model Component<p><ul><li><b><tt>name</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>from</tt></b>: <i><tt>any</tt></i> </li>
+<li><b><tt>to</tt></b>: <i><tt>any</tt></i> </li>
+</ul>
+<p class='location'>Defined at: component.js:1, component.js:10</p>
+<div class='section'><h3>Methods</h3>
+<div class='method code-unit'><h4><tt>{Component} Component.set(value)</tt></h4>
+<p><ul><li><b><tt>value</tt></b>: <i><tt>Integer</tt></i> </li>
+<li><b>Returns</b> <tt>Component</tt> </li>
+</ul>
+<p class='location'>Defined at: component.js:31</p>
+</div><div class='method code-unit'><h4><tt>{Integer} Component.get()</tt></h4>
+<p><ul><li><b>Returns</b> <tt>Integer</tt> </li>
+</ul>
+<p class='location'>Defined at: component.js:48</p>
+</div><div class='method code-unit'><h4><tt>{Boolean} Component.equals(that)</tt></h4>
+<p><ul><li><b><tt>that</tt></b>: <i><tt>Component</tt></i> </li>
+<li><b>Returns</b> <tt>Boolean</tt> </li>
+</ul>
+<p class='location'>Defined at: component.js:56</p>
+</div></div></div>
+</body>
+</html>

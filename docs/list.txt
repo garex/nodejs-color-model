@@ -1,0 +1,8 @@
+../lib/index.js
+../lib/hex-rgb.js
+../lib/xyz.js
+../lib/abstract-model.js
+../lib/hsl.js
+../lib/lab.js
+../lib/rgb.js
+../lib/component.js
