@@ -1,6 +1,6 @@
 {
   "name": "color-model",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Operate colors in popular color models and convert between them",
   "scripts": {
     "test": "make test"
