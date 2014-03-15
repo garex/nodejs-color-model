@@ -7,6 +7,12 @@ test:
 										--require $(REQUIRE) \
 										--reporter $(REPORTER)
 
+test-nc:
+	@NODE_ENV=test $(MOCHA) \
+										--require $(REQUIRE) \
+										--reporter $(REPORTER) \
+										--no-colors
+
 test-w:
 	@NODE_ENV=test $(MOCHA) \
 										--require $(REQUIRE) \
@@ -18,6 +24,6 @@ test-cov:
 	@rm -rf .coverage
 	@mkdir .coverage
 	@jscoverage lib .coverage/lib
-	@COVERAGE=1 $(MAKE) --silent test REPORTER=html-cov > .coverage/index.html
+	@COLOR_MODEL_COVERAGE=1 $(MAKE) --silent test REPORTER=html-cov > .coverage/index.html
 
 .PHONY: test test-w test-cov

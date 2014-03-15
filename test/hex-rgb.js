@@ -44,4 +44,13 @@ describe('HexRgb', function(){
     })
   })
 
+  describe('toRgb', function(){
+    it('should return self as Rgb', function() {
+      new HexRgb('#aabbcc').toRgb().toHexString().should.be.equal('#aabbcc');
+      new HexRgb('#abc')   .toRgb().toHexString().should.be.equal('#aabbcc');
+      new HexRgb('aabbcc') .toRgb().toHexString().should.be.equal('#aabbcc');
+      new HexRgb('abc')    .toRgb().toHexString().should.be.equal('#aabbcc');
+    })
+  })
+
 });
