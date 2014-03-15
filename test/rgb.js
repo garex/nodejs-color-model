@@ -55,11 +55,11 @@ describe('Rgb', function(){
     it('should convert to correct color in Hsl model', function() {
       var Hsl = require('..').Hsl;
       new Rgb(             ).toHsl().toString().should.equal(new Hsl(                ).toString());
-      new Rgb(255, 255, 255).toHsl().toString().should.equal(new Hsl(0.00, 0.00, 1.00).toString());
-      new Rgb(128, 128, 128).toHsl().toString().should.equal(new Hsl(0.00, 0.00, 0.50).toString());
-      new Rgb(170, 187, 204).toHsl().toString().should.equal(new Hsl(0.58, 0.25, 0.73).toString());
-      new Rgb( 78,   0,  63).toHsl().toString().should.equal(new Hsl(0.87, 1.00, 0.15).toString());
-      new Rgb(  0,  76,   0).toHsl().toString().should.equal(new Hsl(0.33, 1.00, 0.15).toString());
+      new Rgb(255, 255, 255).toHsl().toString().should.equal(new Hsl(  0, 0.00, 1.00).toString());
+      new Rgb(128, 128, 128).toHsl().toString().should.equal(new Hsl(  0, 0.00, 0.50).toString());
+      new Rgb(170, 187, 204).toHsl().toString().should.equal(new Hsl(210, 0.25, 0.73).toString());
+      new Rgb( 78,   0,  63).toHsl().toString().should.equal(new Hsl(312, 1.00, 0.15).toString());
+      new Rgb(  0,  76,   0).toHsl().toString().should.equal(new Hsl(120, 1.00, 0.15).toString());
     })
   })
 
