@@ -1,4 +1,5 @@
-module.exports = require(process.env.COLOR_MODEL_COVERAGE
-  ? './.coverage/lib'
-  : './lib'
-);
+if (process.env.COLOR_MODEL_COVERAGE) {
+  eval('module.exports = require("./.coverage/lib");');
+} else {
+  module.exports = require('./lib');
+}
